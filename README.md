@@ -63,4 +63,73 @@ p2p_fileshare/
 └── README.md
 ```
 
+## 💻 Commands
+### Node Management
 
+```bash
+python p2p_node.py --config config.json
+```
+
+### Client Operations
+
+```bash
+# List available files
+python p2p_client.py --host HOST --port PORT --list --key PASSWORD
+```
+
+```bash
+# Download a file
+python p2p_client.py --host HOST --port PORT --download FILENAME --key PASSWORD
+```
+
+```bash
+# Search for files
+python p2p_client.py --host HOST --port PORT --search "query" --key PASSWORD
+```
+
+```bash
+# List incomplete downloads
+python p2p_client.py --list-incomplete --key PASSWORD
+```
+
+```bash
+# Clean up incomplete downloads
+python p2p_client.py --cleanup --key PASSWORD
+```
+
+### ⚙️ Configuration
+Edit `config.json` to customize:
+* Node host and port
+* Share directory location
+* Encryption key
+* Maximum connections
+
+Example configuration:
+
+```json
+{
+  "node": {
+    "host": "localhost",
+    "port": 8080,
+    "share_dir": "./shared",
+    "key": "your_secure_password",
+    "max_connections": 10
+  }
+}
+```
+
+### 📋 Requirements
+* Python 3.7+
+* cryptography
+* watchdog
+* tqdm
+
+Install all dependencies:
+
+```bash
+pip install cryptography watchdog tqdm
+```
+
+### 📄 License
+
+MIT License
